@@ -1,0 +1,32 @@
+
+
+<div class="container overflow-hidden">
+    <input type="number" name="price" [(ngModel)]="priceMax" />
+</div>
+
+<div class="container overflow-hidden">
+<div class="row">
+    <div class="col-md-4" style="width: 18rem;" *ngFor ="let p of listProduct , let i = index">
+
+
+        <div *ngIf="p.price<=priceMax || priceMax==null">
+            <img class="card-img-top" src="../../assets/img.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p class="card-text">Id : {{p.id}} </p>
+          <p class="card-text">Price : {{p.price}} </p>
+          <p class="card-text">Quantity : {{p.quantity}} </p>
+          <p class="card-text">Likes  : {{p.like}} </p>
+    
+          <button class="btn btn-primary"  (click)="buy(i)" [disabled]="p.quantity==0">Buy</button>
+          <button class="btn btn-primary" (click)="like(i)">Like</button>
+          <button class="btn btn-info" [routerLink]="[p.id]"> Details </button>
+        </div>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+ 
