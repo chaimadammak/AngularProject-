@@ -13,6 +13,9 @@ export class FormProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.product=new Product();
+    
   }
+
+  
 
 }

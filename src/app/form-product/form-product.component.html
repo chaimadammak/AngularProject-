@@ -1,26 +1,45 @@
 
-<form>
+<form #f="ngForm" novalidate > <!--Controller toute le formulaire -->
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Search Price</label>
-      <input type="number" class="form-control" name="idprice" placeholder="Enter Price" [(ngModel)]="product.id"required>
-      <div id="emailHelp" class="form-text"> </div>
+      <input type="number" class="form-control is-invalid" name="idprice" placeholder="Enter Price" [(ngModel)]="product.price" required #price="ngModel">
+      <div id="validationServer03Feedback1" class="invalid-feedback" *ngIf="price.invalid">
+   field Price is required 
+    </div>
     </div>
     <div class="mb-3">
+        
         <label for="exampleInputEmail1" class="form-label">id</label>
-        <input type="number" class="form-control" id="idProduct" >
-        <div id="emailHelp" class="form-text">This field id required </div>
+        <input type="number" class="form-control is-invalid" id="idProduct"  name="idProduct"[(ngModel)]="product.id"  required #id="ngModel" >
+        <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="id.invalid">
+   field id  is required 
+    </div>
+    <!--<div class="alert alert-danger" *ngIf="id.invalid">
+        Field is required
+    </div> -->
       </div>
+   
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">t-shirt Title</label>
-        <input type="text" class="form-control" id="idT-shirt" >
+        <input type="text" class="form-control is-invalid"  name="idTitle" placeholder="Enter T-shirt Title" [(ngModel)]="product.title" required  minlength="3" #title="ngModel">
+        <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="title.errors?.['required']">
+            field Title  is required 
+             </div>
+             <div id="validationServer03Feedback" class="invalid-feedback" *ngIf="title.errors?.['minlength']">
+                field  length min is 3 
+                 </div>
        
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Quantity </label>
-        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        
+        <input type="number" class="form-control is-invalid" name="idQuantity"placeholder="Enter Quantity" [(ngModel)]="product.quantity"  required #quantity="ngModel">
+        <div id="validationServer03Feedback1" class="invalid-feedback" *ngIf="quantity.errors?.['required']">
+            field Quantity is required 
+             </div>
       </div>
     
-    <button type="submit" class="btn btn-primary">Add Product</button>
+    <button type="submit" class="btn btn-primary" >Add Product</button>
   </form>
   {{product.id}}
+  <p></p>
+  {{product.title}}
