@@ -1,0 +1,26 @@
+
+<form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Search Price</label>
+      <input type="number" class="form-control" name="idprice" placeholder="Enter Price" [(ngModel)]="product.id"required>
+      <div id="emailHelp" class="form-text"> </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">id</label>
+        <input type="number" class="form-control" id="idProduct" >
+        <div id="emailHelp" class="form-text">This field id required </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">t-shirt Title</label>
+        <input type="text" class="form-control" id="idT-shirt" >
+       
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Quantity </label>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+  {{product.id}}
