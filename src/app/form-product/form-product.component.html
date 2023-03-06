@@ -38,7 +38,7 @@
              </div>
       </div>
     
-    <button type="submit" class="btn btn-primary" >Add Product</button>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="ajouter()" >Add Product</button>
   </form>
   {{product.id}}
   <p></p>
