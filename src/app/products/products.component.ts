@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     //this.listProduct=this.serviceProduct.listProduct;
     this.consumerProduct.getProduct().subscribe({
+      
       next: (data)=>  { this.listProduct=data ; 
       console.log(data);
       }
@@ -47,6 +48,11 @@ export class ProductsComponent implements OnInit {
   }
   getAlert(){
     this.count=this.serviceProduct.getNumberOf(this.listProduct,"quantity",0);
+  }
+  delete(id: number) {
+    this.consumerProduct.deleteProduct(id).subscribe(() => {
+      this.listProduct = this.listProduct.filter(p => p.id !== id);
+    });
   }
  
 

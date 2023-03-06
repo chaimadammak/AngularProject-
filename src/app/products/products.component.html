@@ -18,6 +18,8 @@
           <p class="card-text">Quantity : {{p.quantity}} </p>
           <p class="card-text">Likes  : {{p.like}} </p>
     
+          <button class="btn btn-info" (click)="delete(p.id)"> Delete</button>
+
           <button class="btn btn-primary"  (click)="buy(i)" [disabled]="p.quantity==0">Buy</button>
           <button class="btn btn-primary" (click)="like(i)">Like</button>
           <button class="btn btn-info" [routerLink]="[p.id]"> Details </button>
