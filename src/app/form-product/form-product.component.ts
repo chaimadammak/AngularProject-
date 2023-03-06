@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../Core/Model/product';
+import { ConsumerProductsService } from '../services/consumer-products.service';
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProductServiceService } from '../services/product-service.service';
 export class FormProductComponent implements OnInit {
   product!: Product;
 
-  constructor(private productService:ProductServiceService,private route:Router) { }
+  constructor(private productService:ProductServiceService,private route:Router,private consumerProduct : ConsumerProductsService) { }
 
   ngOnInit(): void {
     this.product=new Product();
@@ -19,9 +20,9 @@ export class FormProductComponent implements OnInit {
     
   }
   ajouter(){
-    this.productService.addProduct(this.product);
-    this.route.navigateByUrl('/products');
-
+    //this.productService.addProduct(this.product);
+    //this.route.navigateByUrl('/products');
+    this.consumerProduct.addProduct(this.product).subscribe({next : () =>this.route.navigateByUrl('/products')  })
   }
 
   

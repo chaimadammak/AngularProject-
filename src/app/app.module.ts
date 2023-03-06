@@ -10,7 +10,7 @@ import { NOTFoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { FormProductComponent } from './form-product/form-product.component';
-
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import { FormProductComponent } from './form-product/form-product.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

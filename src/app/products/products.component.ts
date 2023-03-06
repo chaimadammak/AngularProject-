@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { stringify } from 'querystring';
 import { Product } from '../Core/Model/product';
+import { ConsumerProductsService } from '../services/consumer-products.service';
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
@@ -15,10 +16,16 @@ export class ProductsComponent implements OnInit {
   priceMax!:number;
   count!:number;
 
-  constructor(private serviceProduct: ProductServiceService) { }
+  constructor(private serviceProduct: ProductServiceService, private consumerProduct: ConsumerProductsService) { }
 
   ngOnInit(): void {
-    this.listProduct=this.serviceProduct.listProduct;
+    //this.listProduct=this.serviceProduct.listProduct;
+    this.consumerProduct.getProduct().subscribe({
+      next: (data)=>  { this.listProduct=data ; 
+      console.log(data);
+      }
+    })
+    
     
 
     
